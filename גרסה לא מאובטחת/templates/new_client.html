@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Add New Client{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<h2>Add New Client</h2>
+<form method="post">
+    <div>
+        <label>Client Name:</label>
+        <input type="text" name="name" required />
+    </div>
+    <button type="submit">Add Client</button>
+</form>
+<p><a href="{{ url_for('dashboard') }}">Back to Dashboard</a></p>
+{% endblock %}

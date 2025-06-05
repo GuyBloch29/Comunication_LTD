@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Verify Token{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<h2>Verify Token</h2>
+<form method="post">
+    <div>
+        <label>Enter Token:</label>
+        <input type="text" name="token" required />
+    </div>
+    <button type="submit">Verify</button>
+</form>
+<p><a href="{{ url_for('forgot_password') }}">Back to Forgot Password</a></p>
+{% endblock %}

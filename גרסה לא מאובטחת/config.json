@@ -1,0 +1,11 @@
+{
+  "password_rules": {
+    "min_length": 10,
+    "special_chars": "!@#$%^&*()_+-=[]{}|;:',.<>?/",
+    "history_count": 3,
+    "dictionary": ["password", "admin", "123456", "qwerty"]
+  },
+   "max_attempts": 3,
+   "email_user": "guy8520123@gmail.com",
+   "email_pass": "jqsc nnyq mowv aram"
+}

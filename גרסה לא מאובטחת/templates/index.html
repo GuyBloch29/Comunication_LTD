@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Home - Communication_LTD{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<h1>Welcome to Communication_LTD</h1>
+<p>Please <a href="{{ url_for('login') }}">Login</a> or <a href="{{ url_for('register') }}">Register</a></p>
+{% endblock %}
