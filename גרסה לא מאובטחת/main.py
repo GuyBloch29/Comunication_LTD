@@ -110,7 +110,6 @@ def login():
             flash("Login failed: invalid username or password")
     return render_template('login.html')
 
-
 @app.route('/logout')
 def logout():
     session.clear()
@@ -136,14 +135,15 @@ def new_client():
 
     if request.method == 'POST':
         name = request.form['name']
-        # ❌ Stored XSS vulnerable
-        query = f"INSERT INTO clients (name) OUTPUT INSERTED.id VALUES ('{name}')"
-        cursor.execute(query)
+        # Still vulnerable to XSS, but safe for SQL
+        cursor.execute("INSERT INTO clients (name) OUTPUT INSERTED.id VALUES (?)", (name,))
         new_id = cursor.fetchone()[0]
         conn.commit()
         flash(f"Added client: {name} (ID: {new_id})")
         return redirect(url_for('dashboard'))
+
     return render_template('new_client.html')
+
 
 @app.route('/change_password', methods=['GET', 'POST'])
 def change_password():
